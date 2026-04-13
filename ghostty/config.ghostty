@@ -1,0 +1,36 @@
+# Theme - auto switch between dark/light based on system appearance
+theme = light:catppuccin-latte,dark:catppuccin-macchiato
+
+# Font
+font-size = 14
+font-thicken = true
+
+# Cursor
+cursor-style = bar
+cursor-style-blink = false
+mouse-hide-while-typing = true
+
+# Window
+window-padding-x = 4
+window-padding-y = 4
+window-padding-balance = true
+background-opacity = 0.95
+background-blur = true
+unfocused-split-opacity = 0.9
+confirm-close-surface = false
+macos-titlebar-style = tabs
+
+# Shell integration
+shell-integration = detect
+shell-integration-features = cursor,sudo,title
+
+# Clipboard
+clipboard-read = allow
+clipboard-write = allow
+copy-on-select = clipboard
+
+# Scrollback
+scrollback-limit = 10000
+
+# Misc
+mouse-scroll-multiplier = 3

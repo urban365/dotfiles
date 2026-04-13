@@ -1,8 +1,9 @@
 # dotfiles
 
-Config for my macOS work laptop.
+macOS config for my work laptop.
 
-## Contents
+## Folders
 
-- **fish/** — Fish shell configuration, functions, and environment setup
-- **nvim/** — Neovim editor configuration in lua, including lazy.nvim plugin manager
+- `fish/` - Fish shell config, prompts, functions, and startup hooks
+- `ghostty/` - Ghostty terminal settings and color themes
+- `nvim/` - Neovim config, Lua setup, and plugin lockfile
