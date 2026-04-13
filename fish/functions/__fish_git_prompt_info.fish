@@ -1,5 +1,4 @@
 function __fish_git_prompt_info
-    # Fast check — bail if not in a git repo
     set -l git_dir (command git rev-parse --git-dir 2>/dev/null)
     or return
 
@@ -9,7 +8,6 @@ function __fish_git_prompt_info
     set -l staged_color (set_color cyan)
     set -l ahead_behind_color (set_color magenta)
 
-    # Branch or detached HEAD
     set -l branch (command git symbolic-ref --short HEAD 2>/dev/null)
     if test -z "$branch"
         set branch (command git describe --tags --exact-match HEAD 2>/dev/null)
@@ -18,9 +16,8 @@ function __fish_git_prompt_info
         end
     end
 
-    set -l info " $branch_color $branch"
+    set -l info "$branch_color $branch"
 
-    # Staged / unstaged / untracked counts using porcelain for speed
     set -l git_status (command git status --porcelain=v1 2>/dev/null)
 
     set -l staged 0
@@ -54,7 +51,6 @@ function __fish_git_prompt_info
         set info "$info $dirty_color?$untracked"
     end
 
-    # Ahead/behind upstream
     set -l ab (command git rev-list --left-right --count HEAD...@{upstream} 2>/dev/null)
     if test $status -eq 0
         set -l ahead (string split \t -- $ab)[1]
@@ -65,12 +61,6 @@ function __fish_git_prompt_info
         if test "$behind" -gt 0
             set info "$info $ahead_behind_color↓$behind"
         end
-    end
-
-    # Stash count
-    set -l stash_count (command git stash list 2>/dev/null | count)
-    if test $stash_count -gt 0
-        set info "$info $dirty_color≡$stash_count"
     end
 
     echo -n -s $info $normal

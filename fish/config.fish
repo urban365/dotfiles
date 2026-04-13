@@ -37,6 +37,12 @@ alias fzp 'fzf --preview "bat --color=always --style=numbers {}"'
 alias lg 'lazygit'
 alias ld 'lazydocker'
 
+# AI CLI agents
+alias oc 'opencode'
+alias ai 'opencode'
+alias cpe 'gh copilot explain'
+alias cps 'gh copilot suggest'
+
 # git shortcuts
 alias g 'git'
 alias gs 'git status -sb'
@@ -86,6 +92,11 @@ set -gx LC_ALL en_US.UTF-8
 
 # Greeting
 set fish_greeting
+
+# Editor / pager defaults for development workflows
+set -gx VISUAL $EDITOR
+set -gx PAGER less
+set -gx LESS '-FRX'
 
 # fzf
 if command -q fzf
